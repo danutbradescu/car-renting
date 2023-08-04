@@ -1,0 +1,4 @@
+.image-with-mask {
+    mask-image: url(../../assets/header.png); /* URL to the mask image */
+    mask-size: cover; /* Adjust as needed */
+  }
