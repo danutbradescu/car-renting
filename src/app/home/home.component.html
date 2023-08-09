@@ -1,10 +1,70 @@
-<section>
 <app-header></app-header>
-</section>
-    <div class="md:flex">
-        <img class="w-full object-cover" src="../../assets/header.png" alt="image">
+<div class="relative">
+    <img src="../../assets/lambo.jpg" alt="hero-image" class="w-full h-auto">
+    <button routerLink="cars" class="personal-button absolute bottom-32 right-32 bg-orange-500 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-full">
+        Request a ride!
+    </button>
+</div>
+<!-----Section 2--------->
+<section class="container-2" >
+    <div class="left-h1-section-2">
+  <h1 class=" text-5xl font-extrabold text-orange-500">OUR MISSION</h1>
+  <div class="left-photo">
+     <img src="../../assets/section2-photo-interior.jpg" alt="section2-photo-interior" class="left-photo">
+  </div>
     </div>
-
-<section class="cars-search">
-    <div class="search-buttom"></div>
+    <div class="right">
+        <img src="../../assets/photo-section-2-ext.jpg" alt="photo-section-2-ext" class="right-photo-2">
+        <p class="my-4 text-lg text-gray-500 right-text-2">At our core, we are driven by a singular mission: to redefine car rentals into a journey-enhancing experience. 
+            Our commitment lies in seamlessly providing you with convenient and reliable car rental solutions, tailored to empower your travels. 
+            With an unwavering dedication to quality and service, we curate a diverse fleet of impeccably maintained vehicles, each meticulously chosen to cater to your distinct needs. 
+            Our pledge is to transform the process of renting a car into a catalyst for unforgettable journeys, ensuring every mile is as enjoyable as the destination itself. </p>
+    </div>
 </section>
+<section class="text-center py-16 px-8 section3-main">
+    <h2 class="text-5xl font-bold mb-6 text-orange-500">Client Stories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded shadow">
+            <div class="font-bold text-lg mb-2 text-orange-500">John Doe</div>
+            <p class="quotes">"Renting a car from this company was a breeze. <br>Their service was quick, and the car was in top-notch condition. <br>I'll definitely be coming back for my next trip!"</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+            <div class="font-bold text-lg mb-2 text-orange-500">Jane Smith</div>
+            <p class="quotes">"I had an amazing experience with this car rental service. <br>The vehicle selection was great, and the rental process was smooth.<br> I highly recommend them to anyone in need of a rental car."</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+            <div class="font-bold text-lg mb-2 text-orange-500">Alex Johnson</div>
+            <p class="quotes">"The team at this car rental company went above and beyond to make sure I had the perfect car for my family vacation.<br> Their friendly staff and competitive prices make them my go-to choice."</p>
+        </div>
+    </div>
+</section>
+<section class="bg-cover bg-center bg-no-repeat section4-main min-h-screen">
+    <div class="p-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="text-white text-center md:text-left">
+                <h2 class="text-2xl font-bold mb-6" style="color: #FF4C4C;">Contact Us</h2>
+                <p class="mb-4" >Phone: 123-456-7890</p>
+                <p class="mb-4">Email: info@yourrentalcompany.com</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-lg font-bold mb-2 text-red-500">Contact Us</h3>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

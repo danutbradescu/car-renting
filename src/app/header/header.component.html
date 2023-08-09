@@ -1,16 +1,15 @@
-<header class="header">
-    <div class="header-container">
-      <div class="logo">
-        <a routerLink="/">Car rental Company</a>
-      </div>
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li class="nav-item"><a routerLink="">Home</a></li>
-          <li class="nav-item"><a routerLink="/cars">Cars</a></li>
-          <li class="nav-item"><a routerLink="/contact">Contact</a></li>
-          <li class="nav-item contact"><a routerLink="/login">Contul Meu</a></li>
-        </ul>
-      </nav>
+<header class="header relative">
+  <div class="header-container absolute inset-0 z-10 flex justify-between items-center p-5">
+    <div class="logo text-4xl font-extrabold">
+      <a routerLink="/">Car To Go!</a>
     </div>
-  </header>
-  
+    <nav class="navbar">
+      <ul class="nav-list flex space-x-4">
+        <li class="nav-item"><a routerLink="" class="text-white">Home</a></li>
+        <li class="nav-item"><a routerLink="/cars" class="text-white ">Cars</a></li>
+        <li class="nav-item"><a routerLink="/contact" class="text-white">Contact</a></li>
+        <li class="nav-item"><a routerLink="/login" class="text-white">My Account</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
