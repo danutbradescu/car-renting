@@ -117,6 +117,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/cars', async(req, res) =>{
+
     try{
         const car = new Car({
             make:req.body.make,
@@ -130,6 +131,7 @@ router.post('/cars', async(req, res) =>{
         const savedCar = await car.save();
         res.json(savedCar);
     }  catch (error) {
+
         res.status(500).json({ message: 'Failed to create car', error: error.message});
     }
 });

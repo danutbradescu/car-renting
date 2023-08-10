@@ -7,7 +7,7 @@ const carSchema = new mongoose.Schema({
   color: String,
   pricePerDay: Number,
   available: Boolean,
-  photoUrl: String, // Add a field to store the photo URL
+  photoUrl: String, 
 });
 
 const Car = mongoose.model('Car', carSchema);
