@@ -1,10 +1,14 @@
-const { Router } = require('express')
+const { Router, json } = require('express')
 
 const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken')
 
 const User = require('../models/user')
+
+const { async } = require('rxjs')
+
+const Car = require('../SchemaFolder/car-schema')
 
 const router = Router()
 
@@ -110,6 +114,81 @@ router.post('/logout', (req, res) => {
     res.send({
         message: "success"
     });
+});
+
+router.post('/cars', async(req, res) =>{
+    try{
+        const car = new Car({
+            make:req.body.make,
+            model:req.body.model,
+            year:req.body.year,
+            color:req.body.color,
+            pricePerDay: req.body.pricePerDay,
+            available:req.body.available,
+            photoUrl:req.body.photoUrl,
+        });
+        const savedCar = await car.save();
+        res.json(savedCar);
+    }  catch (error) {
+        res.status(500).json({ message: 'Failed to create car', error: error.message});
+    }
+});
+// Get car details route
+router.get('/cars/:id', async (req, res) => {
+    try {
+        const car = await Car.findById(req.params.id);
+        if (!car) {
+            res.status(404).json({ message: 'Car not found' });
+        } else {
+            res.json(car);
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving car details', error: error.message });
+    }
+});
+router.put('/cars/:id', async (req, res) => {
+    try {
+        const carId = req.params.id;
+        const updatedCar = await Car.findByIdAndUpdate(
+            carId,
+            {
+                $set: {
+                    make: req.body.make,
+                    model: req.body.model,
+                    year: req.body.year,
+                    color: req.body.color,
+                    pricePerDay: req.body.pricePerDay,
+                    available: req.body.available,
+                    photoUrl: req.body.photoUrl,
+                },
+            },
+            { new: true } // Return the updated car
+        );
+
+        if (!updatedCar) {
+            return res.status(404).json({ message: 'Car not found' });
+        }
+
+        res.json(updatedCar);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update car', error: error.message });
+    }
+});
+
+// Delete a car
+router.delete('/cars/:id', async (req, res) => {
+    try {
+        const carId = req.params.id;
+        const deletedCar = await Car.findByIdAndDelete(carId);
+
+        if (!deletedCar) {
+            return res.status(404).json({ message: 'Car not found' });
+        }
+
+        res.json({ message: 'Car deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to delete car', error: error.message });
+    }
 });
 
 module.exports = router;
